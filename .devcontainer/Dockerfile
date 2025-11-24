@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y curl \
         nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-RUN echo "CREATE USER 'sergio'@'localhost' IDENTIFIED BY 'Unifio@123'; \
-          GRANT ALL PRIVILEGES ON *.* TO 'sergio'@'localhost' WITH GRANT OPTION; \
+RUN echo "CREATE USER 'sergio'@'localhost' IDENTIFIED BY 'Ju0.1.1000'; \
+          GRANT ALL PRIVILEGES ON *.* TO 'flavio'@'localhost' WITH GRANT OPTION; \
           CREATE DATABASE projeto; \
           FLUSH PRIVILEGES;" > /tmp/script.sql
 
