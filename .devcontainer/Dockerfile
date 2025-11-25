@@ -13,7 +13,10 @@ RUN apt-get update && apt-get install -y curl \
         nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-RUN echo "CREATE USER 'sergio'@'localhost' IDENTIFIED BY 'Ju0.1.1000'; \
+# Copy custom Maven settings to ensure Quarkus plugin prefix is recognized
+COPY settings.xml /root/.m2/settings.xml
+
+RUN echo "CREATE USER 'flavio'@'localhost' IDENTIFIED BY 'Ju0.1.1000'; \
           GRANT ALL PRIVILEGES ON *.* TO 'flavio'@'localhost' WITH GRANT OPTION; \
           CREATE DATABASE projeto; \
           FLUSH PRIVILEGES;" > /tmp/script.sql
@@ -26,3 +29,4 @@ RUN service mysql start && \
 WORKDIR /workspaces
 
 CMD [ "bash" ]
+ 
